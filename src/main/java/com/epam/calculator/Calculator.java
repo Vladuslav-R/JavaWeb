@@ -8,8 +8,8 @@ public class Calculator {
  }
 
     public int subtraction (int first,int second ){
-
-        return first-second;
+        int rez = first-second;
+        return rez;
     }
     public int multiplication (int first,int second ){
         int rez = first*second;
