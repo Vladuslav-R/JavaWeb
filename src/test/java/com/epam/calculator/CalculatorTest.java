@@ -10,58 +10,87 @@ public class CalculatorTest {
     public void testAddShouldAddWhenNumbersPositive() {
 
 
-//given
-        Calculator calc = new Calculator();
-        int firstArgument = 1;
+   Calculator calc = new Calculator();
+        int firstArgument = 3;
         int secondArgument =2;
         //when
         int rezult = calc.add(firstArgument, secondArgument);
 
+        Assert.assertEquals(rezult, firstArgument+secondArgument);
 
-//then
-        Assert.assertEquals(3, rezult);
+    }
+    @Test
+    public void testAddShouldAddWhenNumbersNegative() {
 
 
+        Calculator calc = new Calculator();
+        int firstArgument = -3;
+        int secondArgument =- 2;
+        //when
+        int rezult = calc.add(firstArgument, secondArgument);
+        Assert.assertEquals(-5, rezult);
+        Assert.assertEquals(rezult, firstArgument+secondArgument);
 
     }
 
 
+
+    @Test
+    public void testSubtractionShouldSubtractWhenFirstNumbersPositive() {
+
+
+        Calculator calc = new Calculator();
+        int firstArgument = 3;
+        int secondArgument =-2;
+        //when
+        int rezult = calc.subtraction(firstArgument, secondArgument);
+
+        Assert.assertEquals(rezult, firstArgument-secondArgument);
+
+    }
+
+
+    @Test
+    public void testSubtractionShouldSubtractWhenFirstNumberNegotive() {
+
+
+        Calculator calc = new Calculator();
+        int firstArgument = -3;
+        int secondArgument =-2;
+        //when
+        int rezult = calc.subtraction(firstArgument, secondArgument);
+
+        Assert.assertEquals(rezult, firstArgument-secondArgument);
+
+    }
+    @Test
+    public void testDivisionShouldDivideWhenNumberNotNull() {
+
+
+        Calculator calc = new Calculator();
+        int firstArgument = 10;
+        int secondArgument =5;
+        //when
+        int rezult = calc.division(firstArgument, secondArgument);
+
+        Assert.assertEquals(rezult, firstArgument/secondArgument);
+
+    }
+
 }
 
+    @Test
+    public void testMultiplication() {
 
 
+        Calculator calc = new Calculator();
+        int firstArgument = 10;
+        int secondArgument =5;
+        //when
+        int rezult = calc.division(firstArgument, secondArgument);
 
+        Assert.assertEquals(rezult, firstArgument/secondArgument);
 
+    }
 
-
-
-
-
-
-//
-//
-//
-//    //given
-//    Calculator calc = new Calculator();
-//    int firstArgument = EnterValue.enterInt("Enter number");
-//    int secondArgument = EnterValue.enterInt("Enter number");
-//    //when
-//    int rezult = calc.add(firstArgument, secondArgument);
-//
-//
-////then
-//        Assert.assertEquals(EnterValue.enterInt("Enter expected number"), rezult);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+}
