@@ -1,4 +1,5 @@
-package com.epam.cone.entity;
+package com.epam.triangle.entity;
+
 
 import java.util.Objects;
 
@@ -7,11 +8,6 @@ public class Point {
 
     private final double xCoordinate;
     private final double yCoordinate;
-
-//    public Point() {
-//        xCoordinate = 0;
-//        yCoordinate = 0;
-//    }
 
     public Point(double xCoordinate, double yCoordinate) {
         this.xCoordinate = xCoordinate;
@@ -30,8 +26,8 @@ public class Point {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Point)) return false;
-        Point that = (Point) o;
+        if (!(o instanceof com.epam.cone.entity.Point)) return false;
+        com.epam.cone.entity.Point that = (com.epam.cone.entity.Point) o;
         return Double.compare(that.getxCoordinate(), getxCoordinate()) == 0 && Double.compare(that.getyCoordinate(), getyCoordinate()) == 0;
     }
 

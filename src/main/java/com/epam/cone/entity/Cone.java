@@ -1,6 +1,6 @@
 package com.epam.cone.entity;
 
-public class Cone {
+public class Cone{
 
     private final Point center;
     private final Point vertex;
@@ -8,11 +8,9 @@ public class Cone {
     private final double radius;
 
 
-    public Cone(Point center, Point vertex, double radius) {
-        center = new Point().;
-        this.center=center;
-        vertex = new Point();
-        this.vertex = vertex;
+    public Cone (double centerXCoordinate,double centerYCoordinate,double vertexXCoordinate,double vertexYCoordinate, double radius) {
+        this.center = new Point(centerXCoordinate,centerYCoordinate);
+        this.vertex = new Point(vertexXCoordinate, vertexYCoordinate);
         this.radius = radius;
     }
 
