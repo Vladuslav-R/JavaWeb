@@ -25,6 +25,7 @@ public class TriangleCalculator {
         return sideCA(triangle.getC(), triangle.getA()) + sideBC(triangle.getB(), triangle.getC()) + sideAB(triangle.getA(), triangle.getB());
     }
 
+
     public double AreaOfATriangle(Triangle triangle) {
         double semiPerimeter = perimeter(triangle) / 2;
         double sideAB = sideAB(triangle.getA(), triangle.getB());
@@ -35,7 +36,15 @@ public class TriangleCalculator {
 
     }
 
-    public boolean isATriangleExist()
+    public boolean isATriangleExist(Triangle triangle) {
+        double a = sideAB(triangle.getA(), triangle.getB());;
+        double b = sideBC(triangle.getB(), triangle.getC());
+        double c = sideCA(triangle.getC(), triangle.getA());
+
+
+
+        if ((a < b+c) && (b < a+c) && (c < a+b)
+    }
 
 }
 
