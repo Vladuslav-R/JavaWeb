@@ -5,29 +5,34 @@ import com.epam.triangle.entity.Triangle;
 
 public class TriangleCalculator {
 
-    public double sideAB(double aX, double aY, double bX, double bY) {
-        Point a = new Point(aX, aY);
-        Point b = new Point(bX, bY);
-
-        return Math.sqrt(Math.pow((bX - aX), 2) - Math.pow((bY - aY), 2));
+    public double sideAB(Point a, Point b) {
+        return Math.sqrt(Math.pow((b.getxCoordinate() - a.getxCoordinate()), 2) - Math.pow((b.getyCoordinate() - a.getyCoordinate()), 2));
     }
 
-    public double sideBC(double bX, double bY, double cX, double cY) {
-        Point b = new Point(bX, bY);
-        Point c = new Point(cX, cY);
+    public double sideBC(Point b, Point c) {
 
-        return Math.sqrt(Math.pow((cX - bX), 2) - Math.pow((cY - bY), 2));
+
+        return Math.sqrt(Math.pow((c.getxCoordinate() - b.getxCoordinate()), 2) - Math.pow((c.getyCoordinate() - b.getyCoordinate()), 2));
     }
 
     public double sideCA(Point c, Point a) {
         return Math.sqrt(Math.pow((a.getxCoordinate() - c.getxCoordinate()), 2) - Math.pow((a.getyCoordinate() - c.getyCoordinate()), 2));
+
     }
 
     public double perimeter(Triangle triangle) {
-        return sideCA(triangle.getC(), triangle.getA());
+
+        return sideCA(triangle.getC(), triangle.getA()) + sideBC(triangle.getB(), triangle.getC()) + sideAB(triangle.getA(), triangle.getB());
+    }
+    public double AreaOfATriangle (Triangle triangle){
+        double semiPerimeter = perimeter(triangle)/2;
+
+        return    Math.sqrt(semiPerimeter*(semiPerimeter-sideAB(triangle.getA(), triangle.getB()) * (semiPerimeter-sideBC(triangle.getB(), triangle.getC()) *
+                (semiPerimeter-sideCA(triangle.getC(), triangle.getA())))));
+
     }
 
-}
 
+}
 
 
