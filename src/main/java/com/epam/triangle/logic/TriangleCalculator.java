@@ -24,14 +24,18 @@ public class TriangleCalculator {
 
         return sideCA(triangle.getC(), triangle.getA()) + sideBC(triangle.getB(), triangle.getC()) + sideAB(triangle.getA(), triangle.getB());
     }
-    public double AreaOfATriangle (Triangle triangle){
-        double semiPerimeter = perimeter(triangle)/2;
 
-        return    Math.sqrt(semiPerimeter*(semiPerimeter-sideAB(triangle.getA(), triangle.getB()) * (semiPerimeter-sideBC(triangle.getB(), triangle.getC()) *
-                (semiPerimeter-sideCA(triangle.getC(), triangle.getA())))));
+    public double AreaOfATriangle(Triangle triangle) {
+        double semiPerimeter = perimeter(triangle) / 2;
+        double sideAB = sideAB(triangle.getA(), triangle.getB());
+        double sideBC = sideBC(triangle.getB(), triangle.getC());
+        double sideCA = sideCA(triangle.getC(), triangle.getA());
+
+        return Math.sqrt(semiPerimeter * (semiPerimeter - sideAB) * (semiPerimeter - sideBC) * (semiPerimeter - sideCA));
 
     }
 
+    public boolean isATriangleExist()
 
 }
 
