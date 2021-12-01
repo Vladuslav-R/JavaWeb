@@ -1,62 +1,28 @@
 package com.epam.triangle.dao;
 
-import org.apache.logging.log4j.LogManager;
+import com.epam.triangle.dao.DataException;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class DataReader {
-
-
-//        private static final Logger LOGGER = LogManager.getLogger(DataReader.class.getName());
-
-        public DataReader() {
+    public List<String> read(String filePath) throws DataException {
+        List<String> data = new ArrayList<>();
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
+            String line = reader.readLine();
+            while (line != null) {
+                data.add(line);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            throw new DataException("The file cannot be found at the specified path! ", e);
         }
-
-        public List<String> read(String path) throws DataException {
-//            LOGGER.info("Started reading data from " + path);
-            List<String> result = new ArrayList<>();
-            try {
-                File file = new File(path);
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                String line = bufferedReader.readLine();
-                while (line != null) {
-                    result.add(line);
-                    line = bufferedReader.readLine();
-                }
-            } catch (FileNotFoundException e) {
-//                LOGGER.error("Caught " + e);
-                DataException dataException = new DataException("Could not find file by that path", e);
-//                LOGGER.throwing(dataException);
-                throw dataException;
-            } catch (IOException e) {
-//                LOGGER.error("Caught " + e);
-                DataException dataException = new DataException("An I/O error occured", e);
-//                LOGGER.throwing(dataException);
-                throw dataException;
-            }
-            return result;
-        }
-
-        public class DataException extends Exception {
-
-            public DataException() {
-                super();
-            }
-
-            public DataException(String message) {
-                super(message);
-            }
-
-            public DataException(String message, Throwable cause) {
-                super(message, cause);
-            }
-        }
-
-
+        return data;
     }
-
-
-
+}

@@ -1,4 +1,4 @@
-package com.epam.triangle.logic;
+package com.epam.triangle.dao;
 
 import java.util.regex.Pattern;
 
