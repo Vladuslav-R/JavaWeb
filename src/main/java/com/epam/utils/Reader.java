@@ -18,6 +18,7 @@ public class Reader {
                 line = bufferedReader.readLine();
             }
         } catch (FileNotFoundException e) {
+            ReadException readException = new ReadException();
             throw new ReadException("Could not find file by that path", e);
         } catch (IOException e) {
             throw new ReadException("An I/O error occured", e);
@@ -25,20 +26,7 @@ public class Reader {
         return result;
     }
 
-    class ReadException extends Exception {
 
-        public ReadException() {
-            super();
-        }
-
-        public ReadException(String message) {
-            super(message);
-        }
-
-        public ReadException(String message, Throwable cause) {
-            super(message, cause);
-        }
-    }
 }
 
 
