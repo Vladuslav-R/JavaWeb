@@ -12,16 +12,14 @@ public class TriangleCreator {
     public Triangle create(String line) {
         String[] splitLines = line.split(DELIMITER);
 
-        double ax = Double.parseDouble(splitLines[0]);
-        double ay = Double.parseDouble(splitLines[1]);
-        double bx = Double.parseDouble(splitLines[2]);
-        double by = Double.parseDouble(splitLines[3]);
-        double cx = Double.parseDouble(splitLines[2]);
-        double cy = Double.parseDouble(splitLines[3]);
+        double aX = Double.parseDouble(splitLines[0]);
+        double aY = Double.parseDouble(splitLines[1]);
+        double bX = Double.parseDouble(splitLines[2]);
+        double bY = Double.parseDouble(splitLines[4]);
+        double cX = Double.parseDouble(splitLines[5]);
+        double cY = Double.parseDouble(splitLines[6]);
 
 
-        return new
-
-                Triangle(ax, ay, bx, by, cx, cy);
+        return new Triangle(aX, aY, bX, bY, cX, cY);
     }
 }
