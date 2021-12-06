@@ -9,10 +9,10 @@ public class Triangle {
     private  Point c;
 
 
-    public Triangle (double aX,double aY,double bX,double bY, double cX,double cY ) {
-        this.a = new Point(aX,aY);
-        this.b = new Point(bX,bY);
-        this.c = new Point(cX,cY);
+    public Triangle (Point a, Point b, Point c ) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
     public Point getA() {

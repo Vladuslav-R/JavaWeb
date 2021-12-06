@@ -1,47 +1,51 @@
 package com.epam.triangle.logic;
 
 import com.epam.calculator.Calculator;
+import com.epam.triangle.entity.Point;
 import com.epam.triangle.entity.Triangle;
 
 public class TriangleValidator {
   TriangleCalculator calculator = new TriangleCalculator();
+Е
+
+    public boolean isATriangleExist(TPoint a, Point b, Point c) {
 
 
-    public boolean isATriangleExist(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
-        return ((a < b + c) && (b < a + c) && (c < a + b));
+        return ((sideAB < sideBC + sideCA) && (sideBC < sideAB + sideCA) && (sideCA < sideAB + sideBC));
     }
 
     public boolean isRightTriangle(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
-        double aSquared = Math.pow(a, 2);
-        double bSquared = Math.pow(b, 2);
-        double cSquared = Math.pow(c, 2);
-        return (aSquared + bSquared == cSquared || aSquared + cSquared == bSquared || bSquared + cSquared == aSquared);
+        double sideABSquared = Math.pow(sideAB, 2);
+        double sideBCSquared = Math.pow(sideBC, 2);
+        double sideCASquared = Math.pow(sideCA, 2);
+        return (sideABSquared + sideBCSquared == sideCASquared || sideABSquared + sideCASquared == sideBCSquared || sideBCSquared + sideCASquared == sideABSquared);
     }
 
     public boolean isIsoscelesTriangle(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
 
-        return ((a == b) || (b == c) || (c == a));
+        return ((sideAB == sideBC) || (sideBC == sideCA) || (sideCA == sideAB));
     }
 
     public boolean isEquilateralTriangle(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
 
-        return (a == b) && (b == c);
+
+        return (sideAB == sideBC) && (sideBC == sideCA);
     }
 
     public boolean isObtuseTriangle(Triangle triangle) {
