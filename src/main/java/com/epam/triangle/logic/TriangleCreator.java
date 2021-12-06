@@ -17,7 +17,7 @@ public class TriangleCreator {
         double bY = Double.parseDouble(splitLines[4]);
         double cX = Double.parseDouble(splitLines[5]);
         double cY = Double.parseDouble(splitLines[6]);
-
+ int d = 1;
 
         return new Triangle(aX, aY, bX, bY, cX, cY);
 
