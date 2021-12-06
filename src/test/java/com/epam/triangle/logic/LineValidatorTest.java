@@ -1,13 +1,11 @@
-package com.epam.triangle;
+package com.epam.triangle.logic;
 
 import com.epam.triangle.logic.LineValidator;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
-
-
-    public class LineValidatorTest {
+public class LineValidatorTest {
 
         private static final String VALID_LINE = "1.0 1.0 7.0 1.0 3.0 7.0";
         private static final String INVALID_LINE = "1.z0 1.0 7.0 1.0 3.0 7.0";
@@ -20,7 +18,7 @@ import org.junit.Test;
             //when
             boolean statement = validator.isValidLine(VALID_LINE);
             //then
-            Assert.assertTrue(statement);
+            Assertions.assertTrue(statement);
         }
 
         @Test
@@ -29,7 +27,7 @@ import org.junit.Test;
             //when
             boolean statement = validator.isValidLine(INVALID_LINE);
             //then
-            Assert.assertFalse(statement);
+            Assertions.assertFalse(statement);
         }
     }
 

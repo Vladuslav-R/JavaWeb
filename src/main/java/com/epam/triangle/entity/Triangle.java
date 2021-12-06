@@ -4,9 +4,9 @@ import com.epam.triangle.entity.Point;
 
 public class Triangle {
 
-    private final Point a;
-    private final Point b;
-    private final Point c;
+    private  Point a;
+    private  Point b;
+    private  Point c;
 
 
     public Triangle (double aX,double aY,double bX,double bY, double cX,double cY ) {
@@ -26,4 +26,17 @@ public class Triangle {
     public Point getC() {
         return c;
     }
+
+    public void setA(Point a) {
+        this.a = a;
+    }
+
+    public void setB(Point b) {
+        this.b = b;
+    }
+
+    public void setC(Point c) {
+        this.c = c;
+    }
 }
+

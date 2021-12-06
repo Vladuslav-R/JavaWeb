@@ -1,8 +1,10 @@
 package com.epam.calculator;
 
-import com.epam.utils.EnterValue;
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
 
@@ -16,9 +18,9 @@ public class CalculatorTest {
         //when
         int rezult = calc.add(firstArgument, secondArgument);
 
-        Assert.assertEquals(rezult, firstArgument+secondArgument);
-
+        assertEquals(rezult, firstArgument+secondArgument);
     }
+
     @Test
     public void testAddShouldAddWhenNumbersNegative() {
 
@@ -28,8 +30,8 @@ public class CalculatorTest {
         int secondArgument =- 2;
         //when
         int rezult = calc.add(firstArgument, secondArgument);
-        Assert.assertEquals(-5, rezult);
-        Assert.assertEquals(rezult, firstArgument+secondArgument);
+        assertEquals(-5, rezult);
+        assertEquals(rezult, firstArgument+secondArgument);
 
     }
 
@@ -45,7 +47,7 @@ public class CalculatorTest {
         //when
         int rezult = calc.subtraction(firstArgument, secondArgument);
 
-        Assert.assertEquals(rezult, firstArgument-secondArgument);
+        assertEquals(rezult, firstArgument-secondArgument);
 
     }
 
@@ -60,7 +62,7 @@ public class CalculatorTest {
         //when
         int rezult = calc.subtraction(firstArgument, secondArgument);
 
-        Assert.assertEquals(rezult, firstArgument-secondArgument);
+        Assertions.assertEquals(rezult, firstArgument-secondArgument);
 
     }
     @Test
@@ -73,7 +75,7 @@ public class CalculatorTest {
         //when
         int rezult = calc.division(firstArgument, secondArgument);
 
-        Assert.assertEquals(rezult, firstArgument/secondArgument);
+        assertEquals(rezult, firstArgument/secondArgument);
 
     }
 
@@ -88,7 +90,7 @@ public class CalculatorTest {
         //when
         int rezult = calc.division(firstArgument, secondArgument);
 
-        Assert.assertEquals(rezult, firstArgument/secondArgument);
+        assertEquals(rezult, firstArgument/secondArgument);
 
     }
 

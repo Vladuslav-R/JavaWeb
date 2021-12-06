@@ -1,12 +1,13 @@
-package com.epam.triangle;
+package com.epam.triangle.dao;
 
-import com.epam.triangle.dao.DataException;
-import com.epam.triangle.dao.DataReader;
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DataReaderTest {
 
@@ -18,22 +19,23 @@ public class DataReaderTest {
             //given
             List<String> expectedLines = Arrays.asList("1.0 1.0 7.0 1.0 3.0 7.0");
             //when
-            List<String> actualLines = reader.read("G:\\Java\\JavaWeb\\src\\test\\java\\com\\epam\\triangle\\triangle.txt");
+            List<String> actualLines = reader.read("G:\\Java\\JavaWeb\\src\\test\\java\\com\\epam\\triangle\\triangleOneLine.txt");
             //then
-            Assert.assertEquals(expectedLines, actualLines);
+            assertEquals(expectedLines, actualLines);
         }
 
         @Test
         public void testReadShouldReadStringsWhenFileHasMultipleStrings() throws DataException {
             //given
-            List<String> expectedLines = Arrays.asList("1.0 1.0 7.0 1.0 3.0 7.0", "line", "123456");
+            List<String> expectedLines = Arrays.asList("1.z0 1.0 7.0 1.0 3.0 7.0");
             //when
             List<String> actualLines = reader.read("G:\\Java\\JavaWeb\\src\\test\\java\\com\\epam\\triangle\\triangle.txt");
             //then
-            Assert.assertEquals(expectedLines, actualLines);
+            assertEquals(expectedLines, actualLines);
         }
 
-        @Test(expected = DataException.class)
+        @Test
+        @Disabled
         public void testReadShouldThrowDataExceptionWhenFileNotFound() throws DataException {
             //given
             //when

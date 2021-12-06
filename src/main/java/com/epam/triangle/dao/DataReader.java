@@ -1,14 +1,14 @@
 package com.epam.triangle.dao;
 
-import com.epam.triangle.dao.DataException;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DataReader {
+    private static final Logger LOGGER = Logger.getLogger(DataReader.class.getName());
     public List<String> read(String filePath) throws DataException {
         List<String> data = new ArrayList<>();
         BufferedReader reader;

@@ -2,12 +2,11 @@ package com.epam.triangle.logic;
 
 import com.epam.triangle.entity.Triangle;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-
 public class TriangleCreator {
+    TriangleValidator validator = new TriangleValidator();
+
     private static final String DELIMITER = " ";
+
 
     public Triangle create(String line) {
         String[] splitLines = line.split(DELIMITER);
@@ -21,5 +20,8 @@ public class TriangleCreator {
 
 
         return new Triangle(aX, aY, bX, bY, cX, cY);
+
     }
+
+
 }

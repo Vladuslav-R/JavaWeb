@@ -11,6 +11,9 @@ public class LineValidator {
         }
 
         public boolean isValidLine(String line) {
+                TriangleCalculator calculator = new TriangleCalculator();
+
             return Pattern.matches(TRIANGLE_LINE_REGEX, line);
         }
+
 }
