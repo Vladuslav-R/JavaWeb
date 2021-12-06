@@ -6,10 +6,10 @@ import com.epam.triangle.entity.Triangle;
 
 public class TriangleValidator {
   TriangleCalculator calculator = new TriangleCalculator();
-Е
 
-    public boolean isATriangleExist(TPoint a, Point b, Point c) {
 
+    public boolean isATriangleExist(Point a, Point b, Point c) {
+        Triangle triangle = new Triangle(a, b, c);
 
         double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
         double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
@@ -49,29 +49,29 @@ public class TriangleValidator {
     }
 
     public boolean isObtuseTriangle(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
-        double aSquared = Math.pow(a, 2);
-        double bSquared = Math.pow(b, 2);
-        double cSquared = Math.pow(c, 2);
-        double cosA = (aSquared + cSquared - bSquared) / 2 * (a * c);
-        double cosB = (aSquared + bSquared - cSquared) / 2 * (a * b);
-        double cosc = (bSquared + cSquared - aSquared) / 2 * (c * b);
-        return a > 90 || b > 90 || b > 90 ;
+        double aSquared = Math.pow(sideAB, 2);
+        double sideBCSquared = Math.pow(sideBC, 2);
+        double cSquared = Math.pow(sideCA, 2);
+        double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
+        double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
+        double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
+        return sideAB > 90 || sideBC > 90 || sideBC > 90 ;
     }
     public boolean isSharpTriangle(Triangle triangle) {
-        double a = calculator.sideAB(triangle.getA(), triangle.getB());
-        double b = calculator.sideBC(triangle.getB(), triangle.getC());
-        double c = calculator.sideCA(triangle.getC(), triangle.getA());
+        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
-        double aSquared = Math.pow(a, 2);
-        double bSquared = Math.pow(b, 2);
-        double cSquared = Math.pow(c, 2);
-        double cosA = (aSquared + cSquared - bSquared) / 2 * (a * c);
-        double cosB = (aSquared + bSquared - cSquared) / 2 * (a * b);
-        double cosc = (bSquared + cSquared - aSquared) / 2 * (c * b);
-        return a < 90 && b < 90 && b > 90 ;
+        double aSquared = Math.pow(sideAB, 2);
+        double sideBCSquared = Math.pow(sideBC, 2);
+        double cSquared = Math.pow(sideCA, 2);
+        double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
+        double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
+        double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
+        return sideAB < 90 && sideBC < 90 && sideBC > 90 ;
     }
 }
