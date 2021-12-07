@@ -25,6 +25,13 @@ public class TriangleCalculator {
     }
 
 
+    public double SideLenght (Point one, Point two) {
+
+
+            return Math.sqrt(Math.pow((two.getxCoordinate() - one.getxCoordinate()), 2) + Math.pow((two.getyCoordinate() - one.getyCoordinate()), 2));
+
+    }
+
     public double areaOfATriangle(Triangle triangle) {
         double semiPerimeter = perimeter(triangle) / 2;
         double sideAB = sideAB(triangle.getA(), triangle.getB());

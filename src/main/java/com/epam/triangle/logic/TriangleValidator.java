@@ -5,18 +5,25 @@ import com.epam.triangle.entity.Point;
 import com.epam.triangle.entity.Triangle;
 
 public class TriangleValidator {
-  TriangleCalculator calculator = new TriangleCalculator();
+    TriangleCalculator calculator = new TriangleCalculator();
 
 
     public boolean isATriangleExist(Point a, Point b, Point c) {
-        Triangle triangle = new Triangle(a, b, c);
+       // Triangle triangle = new Triangle(a, b, c);
 
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
+//        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
+//        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
+//        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
+        return  a.getxCoordinate() == b.getxCoordinate() && b.getxCoordinate() == c.getxCoordinate()
+                || a.getyCoordinate() == b.getyCoordinate() && b.getyCoordinate() == c.getyCoordinate();
 
-        return ((sideAB < sideBC + sideCA) && (sideBC < sideAB + sideCA) && (sideCA < sideAB + sideBC));
     }
+
+
+
+
+
+
 
     public boolean isRightTriangle(Triangle triangle) {
         double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
@@ -44,7 +51,6 @@ public class TriangleValidator {
         double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
 
-
         return (sideAB == sideBC) && (sideBC == sideCA);
     }
 
@@ -59,8 +65,9 @@ public class TriangleValidator {
         double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
         double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
         double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
-        return sideAB > 90 || sideBC > 90 || sideBC > 90 ;
+        return sideAB > 90 || sideBC > 90 || sideBC > 90;
     }
+
     public boolean isSharpTriangle(Triangle triangle) {
         double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
         double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
@@ -72,6 +79,6 @@ public class TriangleValidator {
         double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
         double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
         double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
-        return sideAB < 90 && sideBC < 90 && sideBC > 90 ;
+        return sideAB < 90 && sideBC < 90 && sideBC > 90;
     }
 }
