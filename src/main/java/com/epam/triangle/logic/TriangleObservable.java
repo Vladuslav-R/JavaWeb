@@ -9,9 +9,9 @@ import java.util.List;
 public class TriangleObservable extends Triangle implements Observable {
     private final Integer id;
     public final List<Observer> observers = new ArrayList<>();
-
-    public TriangleObservable(Integer id, double aX, double aY, double bX, double bY, double cX, double cY) {
-        super(aX, aY, bX, bY, cX, cY);
+    public Point a = new Point(1,1);
+    public TriangleObservable(Integer id, Point a, Point b, Point c) {
+        super(a, b, c);
         this.id = id;
     }
 
@@ -47,7 +47,7 @@ public class TriangleObservable extends Triangle implements Observable {
 
     @Override
     public void notefyObsrevers() {
-        for (Observer observer:observers) {
+        for (Observer observer : observers) {
             observer.update(this);
         }
 

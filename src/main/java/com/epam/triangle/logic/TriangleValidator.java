@@ -9,10 +9,8 @@ public class TriangleValidator {
 
 
     public boolean isATriangleExist(Point a, Point b, Point c) {
-
         return a.getxCoordinate() == b.getxCoordinate() && b.getxCoordinate() == c.getxCoordinate()
                 || a.getyCoordinate() == b.getyCoordinate() && b.getyCoordinate() == c.getyCoordinate();
-
     }
 
 
@@ -38,28 +36,24 @@ public class TriangleValidator {
                 && (calculator.getSideLength(b, c) == calculator.getSideLength(c, a));
     }
 
-    public boolean isObtuseTriangle(Triangle triangle) {
+    public boolean isObtuseTriangle(Point a, Point b, Point c) {
 
-        double aSquared = Math.pow(sideAB, 2);
-        double sideBCSquared = Math.pow(sideBC, 2);
-        double cSquared = Math.pow(sideCA, 2);
-        double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
-        double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
-        double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
-        return sideAB > 90 || sideBC > 90 || sideBC > 90;
+        double sideABSquared = Math.pow(calculator.getSideLength(a, b), 2);
+        double sideBCSquared = Math.pow(calculator.getSideLength(b, c), 2);
+        double sideCASquared = Math.pow(calculator.getSideLength(c, a), 2);
+        double cosA = (sideABSquared + sideCASquared - sideBCSquared) / 2 * (sideABSquared * sideCASquared);
+        double cosB = (sideABSquared + sideBCSquared - sideCASquared) / 2 * (sideABSquared * sideBCSquared);
+        double cosC = (sideBCSquared + sideCASquared - sideABSquared) / 2 * (sideCASquared * sideBCSquared);
+        return cosC > 90 || cosB > 90 || cosA > 90;
     }
 
-    public boolean isSharpTriangle(Triangle triangle) {
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
-
-        double aSquared = Math.pow(sideAB, 2);
-        double sideBCSquared = Math.pow(sideBC, 2);
-        double cSquared = Math.pow(sideCA, 2);
-        double cosA = (aSquared + cSquared - sideBCSquared) / 2 * (sideAB * sideCA);
-        double cosB = (aSquared + sideBCSquared - cSquared) / 2 * (sideAB * sideBC);
-        double cosc = (sideBCSquared + cSquared - aSquared) / 2 * (sideCA * sideBC);
-        return sideAB < 90 && sideBC < 90 && sideBC > 90;
+    public boolean isSharpTriangle(Point a, Point b, Point c) {
+        double sideABSquared = Math.pow(calculator.getSideLength(a, b), 2);
+        double sideBCSquared = Math.pow(calculator.getSideLength(b, c), 2);
+        double sideCASquared = Math.pow(calculator.getSideLength(c, a), 2);
+        double cosA = (sideABSquared + sideCASquared - sideBCSquared) / 2 * (sideABSquared * sideCASquared);
+        double cosB = (sideABSquared + sideBCSquared - sideCASquared) / 2 * (sideABSquared * sideBCSquared);
+        double cosC = (sideBCSquared + sideCASquared - sideABSquared) / 2 * (sideCASquared * sideBCSquared);
+        return cosA < 90 && cosB < 90 && cosC > 90;
     }
 }

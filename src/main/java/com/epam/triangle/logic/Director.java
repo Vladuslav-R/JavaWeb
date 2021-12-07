@@ -16,8 +16,6 @@ public class Director {
     private final LineValidator lineValidator;
     private final TriangleCreator creator;
 
-    TriangleValidator triangleValidator = new TriangleValidator();
-
     public Director(DataReader reader, LineValidator lineValidator, TriangleCreator creator) {
         this.reader = reader;
         this.lineValidator = lineValidator;
@@ -28,12 +26,12 @@ public class Director {
         List<Triangle> triangles = new ArrayList<>();
         for (String line : reader.read(path)) {
             if (lineValidator.isValidLine(line)) {
-                Triangle triangle = creator.create(line);
-                if (triangleValidator.isATriangleExist(triangle)) {
-                    triangles.add(triangle);
+                    Triangle triangle = creator.create(line);
+                    if (triangle != null) {
+                        triangles.add(triangle);
+                    }
                 }
             }
-        }
         return triangles;
     }
 }

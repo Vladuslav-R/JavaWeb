@@ -11,8 +11,8 @@ public class Triangle {
 
     public Triangle (Point a, Point b, Point c ) {
         this.a = new Point(a.getxCoordinate(), a.getyCoordinate());
-        this.b = new Point(bX,bY);
-        this.c = new Point(cX,cY);
+        this.b = new Point(b.getxCoordinate(),b.getyCoordinate());
+        this.c = new Point(c.getxCoordinate(),c.getyCoordinate());
     }
 
     public Point getA() {
