@@ -22,6 +22,33 @@ public class Point {
         return yCoordinate;
     }
 
+    private  Point a;
+    private  Point b;
+    private  Point c;
+
+    public Point getA() {
+        return a;
+    }
+
+    public Point getB() {
+        return b;
+    }
+
+    public Point getC() {
+        return c;
+    }
+
+    public void setA(Point a) {
+        this.a = a;
+    }
+
+    public void setB(Point b) {
+        this.b = b;
+    }
+
+    public void setC(Point c) {
+        this.c = c;
+    }
 
     @Override
     public boolean equals(Object o) {

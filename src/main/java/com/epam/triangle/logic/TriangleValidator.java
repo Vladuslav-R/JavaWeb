@@ -9,55 +9,36 @@ public class TriangleValidator {
 
 
     public boolean isATriangleExist(Point a, Point b, Point c) {
-       // Triangle triangle = new Triangle(a, b, c);
 
-//        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-//        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-//        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
-        return  a.getxCoordinate() == b.getxCoordinate() && b.getxCoordinate() == c.getxCoordinate()
+        return a.getxCoordinate() == b.getxCoordinate() && b.getxCoordinate() == c.getxCoordinate()
                 || a.getyCoordinate() == b.getyCoordinate() && b.getyCoordinate() == c.getyCoordinate();
 
     }
 
 
+    public boolean isRightTriangle(Point a, Point b, Point c) {
 
 
-
-
-
-    public boolean isRightTriangle(Triangle triangle) {
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
-
-        double sideABSquared = Math.pow(sideAB, 2);
-        double sideBCSquared = Math.pow(sideBC, 2);
-        double sideCASquared = Math.pow(sideCA, 2);
-        return (sideABSquared + sideBCSquared == sideCASquared || sideABSquared + sideCASquared == sideBCSquared || sideBCSquared + sideCASquared == sideABSquared);
+        double sideABSquared = Math.pow(calculator.getSideLength(a, b), 2);
+        double sideBCSquared = Math.pow(calculator.getSideLength(b, c), 2);
+        double sideCASquared = Math.pow(calculator.getSideLength(c, a), 2);
+        return (sideABSquared + sideBCSquared == sideCASquared || sideABSquared + sideCASquared == sideBCSquared ||
+                sideBCSquared + sideCASquared == sideABSquared);
     }
 
-    public boolean isIsoscelesTriangle(Triangle triangle) {
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
+    public boolean isIsoscelesTriangle(Point a, Point b, Point c) {
 
-
-        return ((sideAB == sideBC) || (sideBC == sideCA) || (sideCA == sideAB));
+        return ((calculator.getSideLength(a, b) == calculator.getSideLength(b, c)) || (calculator.getSideLength(b, c)
+                == calculator.getSideLength(c, a)) || (calculator.getSideLength(c, a) == calculator.getSideLength(b, a)));
     }
 
-    public boolean isEquilateralTriangle(Triangle triangle) {
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
+    public boolean isEquilateralTriangle(Point a, Point b, Point c) {
 
-
-        return (sideAB == sideBC) && (sideBC == sideCA);
+        return (calculator.getSideLength(a, b) == calculator.getSideLength(b, c))
+                && (calculator.getSideLength(b, c) == calculator.getSideLength(c, a));
     }
 
     public boolean isObtuseTriangle(Triangle triangle) {
-        double sideAB = calculator.sideAB(triangle.getA(), triangle.getB());
-        double sideBC = calculator.sideBC(triangle.getB(), triangle.getC());
-        double sideCA = calculator.sideCA(triangle.getC(), triangle.getA());
 
         double aSquared = Math.pow(sideAB, 2);
         double sideBCSquared = Math.pow(sideBC, 2);
