@@ -1,4 +1,4 @@
-package com.epam.triangle.logic;
+package com.epam.triangle.observer;
 
 import com.epam.triangle.entity.Triangle;
 

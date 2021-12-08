@@ -1,4 +1,4 @@
-package com.epam.triangle.logic;
+package com.epam.triangle.observer;
 
 import com.epam.triangle.entity.Point;
 import com.epam.triangle.entity.Triangle;
@@ -22,7 +22,7 @@ public class TriangleObservable extends Triangle implements Observable {
     @Override
     public void setA(Point a) {
         super.setA(a);
-        notefyObsrevers();
+        notifyObsrevers();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class TriangleObservable extends Triangle implements Observable {
     }
 
     @Override
-    public void notefyObsrevers() {
+    public void notifyObsrevers() {
         for (Observer observer : observers) {
             observer.update(this);
         }

@@ -12,20 +12,18 @@ public class TriangleCalculator {
                 + Math.pow((second.getyCoordinate() - first.getyCoordinate()), 2));
     }
 
+    public double perimeter(Point a, Point b, Point c) {
 
-    public double perimeter(Point a,Point b, Point c) {
-        return getSideLength(c,a) + getSideLength(a,b) + getSideLength(a, b);
+        return getSideLength(c, a) + getSideLength(a, b) + getSideLength(b, c);
     }
 
-    public double areaOfATriangle(Point a,Point b, Point c) {
-        double semiPerimeter = perimeter(a,b,c) / 2;
+    public double areaOfATriangle(Point a, Point b, Point c) {
+        double semiPerimeter = perimeter(a, b, c) / 2;
 
 
-
-        return Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(a,b)) * (semiPerimeter - getSideLength(b,c)) * (semiPerimeter -getSideLength(c,a)));
+        return Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(a, b)) * (semiPerimeter - getSideLength(b, c)) * (semiPerimeter - getSideLength(c, a)));
 
     }
-
 
 
 }
