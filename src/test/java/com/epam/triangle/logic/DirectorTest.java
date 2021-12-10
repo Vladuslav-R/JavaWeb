@@ -35,6 +35,7 @@ public class DirectorTest {
 
         when(reader.read(PATH)).thenReturn(Arrays.asList(VALID_LINE1,VALID_LINE2, INVALID_LINE));
         when(creator.create(VALID_LINE1)).thenReturn(VALID_TRIANGLE);
+
         when(creator.create(VALID_LINE2)).thenReturn(null);
         when(lineValidator.isValidLine(VALID_LINE1)).thenReturn(true);
         when(lineValidator.isValidLine(VALID_LINE2)).thenReturn(true);
