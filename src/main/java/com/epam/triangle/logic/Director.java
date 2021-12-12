@@ -32,6 +32,7 @@ public class Director {
                     }
                 }
             }
+        LOGGER.info("Data was read successfully");
         return triangles;
     }
 }

@@ -16,15 +16,16 @@ public class TriangleCalculator {
     }
 
     public double perimeter(Point a, Point b, Point c) {
-
-        return getSideLength(c, a) + getSideLength(a, b) + getSideLength(b, c);
+        double result = getSideLength(c, a) + getSideLength(a, b) + getSideLength(b, c);
+        LOGGER.info("The perimeter of the triangle is equal to " + " " + result);
+        return result;
     }
 
     public double areaOfATriangle(Point a, Point b, Point c) {
         double semiPerimeter = perimeter(a, b, c) / 2;
         double result = Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(a, b)) *
                 (semiPerimeter - getSideLength(b, c)) * (semiPerimeter - getSideLength(c, a)));
-        LOGGER.info("Calculated the surface area of " + a + ": " + result);
+        LOGGER.info("The area of the triangle is equal to " + " " + result);
         return result;
 
     }

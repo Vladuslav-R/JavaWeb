@@ -19,7 +19,8 @@ public class DataReaderTest {
             //given
             List<String> expectedLines = Arrays.asList("1.0 1.0 7.0 1.0 3.0 7.0");
             //when
-            List<String> actualLines = reader.read("G:\\Java\\JavaWeb\\src\\test\\java\\com\\epam\\triangle\\triangleOneLine.txt");
+            List<String> actualLines = reader.read("src\\main\\resources\\triangleOneLine.txt");
+           // List<String> actualLines = reader.read("src\\test\\java\\com\\epam\\triangle\\triangleOneLine.txt");
             //then
             assertEquals(expectedLines, actualLines);
         }
@@ -29,7 +30,7 @@ public class DataReaderTest {
             //given
             List<String> expectedLines = Arrays.asList("1.z0 1.0 7.0 1.0 3.0 7.0");
             //when
-            List<String> actualLines = reader.read("G:\\Java\\JavaWeb\\src\\test\\java\\com\\epam\\triangle\\triangle.txt");
+            List<String> actualLines = reader.read("src\\main\\resources\\triangle.txt");
             //then
             assertEquals(expectedLines, actualLines);
         }

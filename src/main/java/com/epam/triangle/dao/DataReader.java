@@ -20,6 +20,7 @@ public class DataReader {
                 data.add(line);
                 line = reader.readLine();
             }
+            LOGGER.info("Data from file has read");
             reader.close();
         } catch (IOException e) {
             throw new DataException("The file cannot be found at the specified path! ", e);
