@@ -4,7 +4,8 @@ import com.epam.triangle.entity.Point;
 import com.epam.triangle.entity.Triangle;
 
 public class TriangleIdentifiable extends Triangle {
-    public TriangleIdentifiable(Integer id, Point a, Point b, Point c) {
+
+    public TriangleIdentifiable(Integer id, String name, Point a, Point b, Point c) {
         super(a, b, c);
         this.id = id;
     }
@@ -13,5 +14,11 @@ public class TriangleIdentifiable extends Triangle {
 
     public Integer getId() {
         return id;
+    }
+
+    private String name;
+
+    public String getName() {
+        return name;
     }
 }
