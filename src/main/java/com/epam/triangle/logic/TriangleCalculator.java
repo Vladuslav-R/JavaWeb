@@ -24,7 +24,7 @@ public class TriangleCalculator {
         double semiPerimeter = perimeter(a, b, c) / 2;
         double result = Math.sqrt(semiPerimeter * (semiPerimeter - getSideLength(a, b)) *
                 (semiPerimeter - getSideLength(b, c)) * (semiPerimeter - getSideLength(c, a)));
-        LOGGER.info("Calculated the surface area of " + tria + ": " + result);
+        LOGGER.info("Calculated the surface area of " + a + ": " + result);
         return result;
 
     }
