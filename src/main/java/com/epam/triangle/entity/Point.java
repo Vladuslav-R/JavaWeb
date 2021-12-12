@@ -53,8 +53,8 @@ public class Point {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof com.epam.cone.entity.Point)) return false;
-        com.epam.cone.entity.Point that = (com.epam.cone.entity.Point) o;
+        if (!(o instanceof Point)) return false;
+        Point that = (Point) o;
         return Double.compare(that.getxCoordinate(), getxCoordinate()) == 0 && Double.compare(that.getyCoordinate(), getyCoordinate()) == 0;
     }
 

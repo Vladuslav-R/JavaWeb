@@ -16,6 +16,7 @@ public class TriangleValidator {
 
     public boolean isRightTriangle(Point a, Point b, Point c) {
 
+        //Test 1
 
         double sideABSquared = Math.pow(calculator.getSideLength(a, b), 2);
         double sideBCSquared = Math.pow(calculator.getSideLength(b, c), 2);
