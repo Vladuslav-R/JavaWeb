@@ -87,60 +87,59 @@ public class TriangleRepositoryImplTest {
         // then
         assertEquals(expectedQuery, actualQuery);
     }
-//
-//    @Test
-//    public void testQueryShouldSortDataByFirstPointXCoordinate() {
-//        // given
-//        final TetrahedronRepository repository = new TetrahedronRepositoryImpl();
-//        repository.add(firstTetrahedronObservable);
-//        repository.add(secondTetrahedronObservable);
-//        Comparator<TetrahedronObservable> firstPointComparator = Mockito.mock(Comparator.class);
-//        Mockito.when(firstPointComparator.compare(firstTetrahedronObservable, secondTetrahedronObservable))
-//                .thenReturn(1);
-//        List<TetrahedronObservable> expectedQuery = Arrays.asList(secondTetrahedronObservable,
-//                firstTetrahedronObservable);
-//        // when
-//        List<TetrahedronObservable> actualQuery = repository.sort(firstPointComparator);
-//        // then
-//        Assert.assertEquals(expectedQuery, actualQuery);
-//    }
-//
-//    @Test
-//    public void testQueryShouldReturnTrianglesWhenAreaInGivenRange() {
-//        // given
-//        final TetrahedronRepository repository = new TetrahedronRepositoryImpl();
-//        repository.add(firstTetrahedronObservable);
-//        repository.add(secondTetrahedronObservable);
-//        SurfaceAreaRangeSpecification specification = Mockito.mock(SurfaceAreaRangeSpecification.class);
-//        Mockito.when(specification.specified(firstTetrahedronObservable)).thenReturn(false);
-//        Mockito.when(specification.specified(secondTetrahedronObservable)).thenReturn(true);
-//        List<TetrahedronObservable> expectedQuery = Arrays.asList(secondTetrahedronObservable);
-//
-//        // when
-//        List<TetrahedronObservable> actualQuery = repository.query(specification);
-//
-//        // then
-//        Assert.assertEquals(expectedQuery, actualQuery);
-//    }
-//
-//
-//    @Test
-//    public void testQueryShouldReturnTrianglesWhenFirstPointIsInTheFirstQuadrant() {
-//        // given
-//        final TetrahedronRepository repository = new TetrahedronRepositoryImpl();
-//        repository.add(secondTetrahedronObservable);
-//        repository.add(firstTetrahedronObservable);
-//        FirstQuadrantSpecification specification = Mockito.mock(FirstQuadrantSpecification.class);
-//        Mockito.when(specification.specified(secondTetrahedronObservable)).thenReturn(true);
-//        Mockito.when(specification.specified(firstTetrahedronObservable)).thenReturn(true);
-//        List<TetrahedronObservable> expectedQuery = Arrays.asList(secondTetrahedronObservable,
-//                firstTetrahedronObservable);
-//        // when
-//        List<TetrahedronObservable> actualQuery = repository.query(specification);
-//        // then
-//        Assert.assertEquals(expectedQuery, actualQuery);
-//    }
-//
+
+    @Test
+    public void testQueryShouldSortDataByFirstPointXCoordinate() {
+        // given
+        final TriangleRepository repository = new TriangleRepositoryImp();
+        repository.add(TRIANGLE_FIRST);
+        repository.add(TRIANGLE_SECOND);
+        Comparator<TriangleIdentifiable> firstTrianfleComparator = Mockito.mock(Comparator.class);
+        Mockito.when(firstTrianfleComparator.compare(TRIANGLE_FIRST, TRIANGLE_SECOND))
+                .thenReturn(1);
+        List<TriangleIdentifiable> expectedQuery = Arrays.asList(TRIANGLE_FIRST,
+                TRIANGLE_SECOND);
+        // when
+        List<TriangleIdentifiable> actualQuery = repository.sort(firstTrianfleComparator);
+        // then
+       assertEquals(expectedQuery, actualQuery);
+    }
+
+    @Test
+    public void testQueryShouldReturnTrianglesWhenAreaInGivenRange() {
+        // given
+        final TriangleRepository repository = new TriangleRepositoryImp();
+        repository.add(TRIANGLE_FIRST);
+        repository.add(TRIANGLE_SECOND);
+        AreaSpecification specification = Mockito.mock(AreaSpecification.class);
+        Mockito.when(specification.specified(TRIANGLE_FIRST)).thenReturn(false);
+        Mockito.when(specification.specified(TRIANGLE_SECOND)).thenReturn(true);
+        List<TriangleIdentifiable> expectedQuery = Arrays.asList(TRIANGLE_SECOND);
+
+        // when
+        List<TriangleIdentifiable> actualQuery = repository.query(specification);
+
+        // then
+        assertEquals(expectedQuery, actualQuery);
+    }
+
+
+    @Test
+    public void testQueryShouldReturnTrianglesWhenFirstPointIsInTheFirstQuadrant() {
+        // given
+        final TriangleRepository repository = new TriangleRepositoryImp();
+        repository.add(TRIANGLE_SECOND);
+        repository.add(TRIANGLE_FIRST);
+        FirstQuadrantSpecification specification = Mockito.mock(FirstQuadrantSpecification.class);
+        Mockito.when(specification.specified(TRIANGLE_SECOND)).thenReturn(true);
+        Mockito.when(specification.specified(TRIANGLE_FIRST)).thenReturn(true);
+        List<TriangleIdentifiable> expectedQuery = Arrays.asList(TRIANGLE_FIRST,TRIANGLE_SECOND);
+        // when
+        List<TriangleIdentifiable> actualQuery = repository.query(specification);
+        // then
+       assertEquals(expectedQuery, actualQuery);
+    }
+
 
 }
 
