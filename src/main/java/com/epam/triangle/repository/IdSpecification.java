@@ -9,6 +9,6 @@ private final Integer id;
 
     @Override
     public boolean specified(TriangleIdentifiable triangle) {
-        return false;
+        return triangle.getId().equals(id);
     }
 }
