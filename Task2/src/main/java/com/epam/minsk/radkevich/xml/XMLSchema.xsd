@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.example.com/drugs"
+        xmlns:tns="http://www.example.com/drugs"
+        elementFormDefault="qualified">
+    <element name="drugs">
+        <complexType>
+            <sequence>
+                <element name="drug">
+                    type=tns:Drug"
+                    minOccurs="3"
+                    maxOccurs="unbounded" />
+            </sequence>
+        </complexType>>
+    </element>
+    <complexType name="Drug">
+        <sequence>
+            <element name = "name" type="string"/>
+            <element name = "price" type="double"/>
+        </sequence>
+<!--        <attribute name="drug" type="tns:Drug" use="required">-->
+            <choice base="string">
+                <enumeration value="BMP"></enumeration>
+                <enumeration value="MIC"></enumeration>
+            </choice>
+    </complexType>

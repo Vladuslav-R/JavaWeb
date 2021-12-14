@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<drugs>
+    <drug id="0" manufacturer="BMP" >
+    <name>"a pill for greed"</name>
+    <price>10.7</price>
+    <inTablets>
+    <picePerPack>20</picePerPack>
+    </inTablets>>
+    </drug>
+
+       <drug id="1" manufacturer="MIC" >
+        <name>"powder from stupidity"</name>
+        <manuffacturer>Mic</manuffacturer>
+        <price>15.3</price>
+        <inPowder>
+            <gramsPerPack>20</gramsPerPack>
+        </inPowder>>
+    </drug>
+
+</drugs>
